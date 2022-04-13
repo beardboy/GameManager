@@ -14,188 +14,57 @@
         <converters:InvertBooleanConverter x:Key="InvertBooleanConverter" />
     </ContentPage.Resources>
 
-    <!--<StackLayout>
-        <Label Text="Popular Games Right Now" FontSize="Small" TextColor="White" Margin="10" HorizontalOptions="FillAndExpand" />
-        <CarouselView ItemsSource="{Binding PopularGames}" 
-                      Loop="False"
-                      HorizontalOptions="FillAndExpand" 
-                      VerticalOptions="CenterAndExpand" 
-                      HeightRequest="200">
-            <CarouselView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout Padding="10">
-                        <Frame CornerRadius="10" Padding="0" IsClippedToBounds="True">
-                            <Image WidthRequest="120"
-                                                HorizontalOptions="Center"
-                                                VerticalOptions="Center"
-                                                Source="{Binding CoverUrl}"/>
-                        </Frame>
-                    </StackLayout>
-                </DataTemplate>
-            </CarouselView.ItemTemplate>
-        </CarouselView>
-    </StackLayout>-->
-    
-    <!--<RefreshView IsRefreshing="{Binding IsBusy}" Command="{Binding RefreshGamesCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
-        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Purple">
-            <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <!--<HorizontalStackLayout HorizontalOptions="FillAndExpand" BackgroundColor="Gray" HeightRequest="50">
-                    <Label Text="IGDB" FontSize="Subtitle" TextColor="White" HorizontalOptions="FillAndExpand" VerticalTextAlignment="Center" Margin="5" />
-                    <ImageButton Margin="5" 
-                                 BackgroundColor="Gray"
-                                 BorderColor="Gray"
-                                 Source="search_white_24dp.png"
-                                 Command="{Binding ToggleSearchCommand}"
-                                 HeightRequest="30" 
-                                 WidthRequest="50"
-                                 HorizontalOptions="EndAndExpand" 
-                                 VerticalOptions="Center"   />
-                    <SearchBar HorizontalOptions="End" 
-                               IsVisible="{Binding IsSearchBarVisible}"
-                               CancelButtonColor="White"
-                               TextColor="White"
-                               PlaceholderColor="White"
-                               BackgroundColor="Gray"
-                               TextChanged="SearchBar_TextChanged"
-                               Placeholder="Search for Games..."
-                               SearchCommand="{Binding SearchCommand}"
-                               VerticalOptions="CenterAndExpand"
-                               Text="{Binding SearchBarText}"/>
-                </HorizontalStackLayout>-->
-                <components:Header />
-                <VerticalStackLayout Margin="0" Padding="5" Spacing="0" IsVisible="{Binding IsSearchGamesVisible, Converter={StaticResource InvertBooleanConverter}}">
-                    <Label Text="Popular Games Right Now" FontSize="Small" TextColor="White" Margin="10,10,0,0" HorizontalOptions="FillAndExpand" />
-                    <CarouselView Margin="5"
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <VerticalStackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <components:Header />
+            <VerticalStackLayout Margin="0" Padding="5" Spacing="0" IsVisible="{Binding IsSearchGamesVisible, Converter={StaticResource InvertBooleanConverter}}">
+                <Label Text="Popular Games Right Now" FontSize="Small" TextColor="White" Margin="10,10,0,0" HorizontalOptions="FillAndExpand" />
+                <CarouselView Margin="5"
                                   ItemsSource="{Binding PopularGames}" 
                                   Loop="False"
                                   HorizontalOptions="FillAndExpand"
                                   VerticalOptions="FillAndExpand"
-                                  HorizontalScrollBarVisibility="Never" BackgroundColor="Blue"
+                                  HorizontalScrollBarVisibility="Never"
                                   HeightRequest="200">
 
-                        <CarouselView.ItemsLayout>
-                            <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0.5" />
-                        </CarouselView.ItemsLayout>
-                        <CarouselView.ItemTemplate>
-                            <DataTemplate>
-                                <StackLayout Padding="5">
-                                    <Image WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center" Source="{Binding CoverUrl}" />
-                                </StackLayout>
-                                <!--<StackLayout Padding="5" BackgroundColor="Green" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="0.5" />
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="5">
+                                <Image WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center" Source="{Binding CoverUrl}" />
+                            </StackLayout>
+                            <!--<StackLayout Padding="5" BackgroundColor="Green" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                     <Frame CornerRadius="20" Padding="0" IsClippedToBounds="True">
                                         <Image WidthRequest="120" HorizontalOptions="Center" VerticalOptions="Center" Source="{Binding CoverUrl}" />
                                     </Frame>
                                 </StackLayout>-->
                         </DataTemplate>
-                        </CarouselView.ItemTemplate>
-                    </CarouselView>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
 
-                    <Label Text="New Releases" FontSize="Small" TextColor="White" Margin="10" HorizontalOptions="FillAndExpand" BackgroundColor="Blue" />
-                    <CollectionView Margin="10" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" BackgroundColor="CornflowerBlue"
+                <Label Text="New Releases" FontSize="Small" TextColor="White" Margin="10" HorizontalOptions="FillAndExpand" />
+                <CollectionView Margin="10" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" 
                                 ItemsSource="{Binding NewGames}">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <HorizontalStackLayout Margin="5" Padding="2" Spacing="10" HorizontalOptions="FillAndExpand">
-                                    <Image Source="{Binding CoverUrl}"
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout Margin="5" Padding="2" Spacing="10" HorizontalOptions="FillAndExpand">
+                                <Image Source="{Binding CoverUrl}"
                                        HeightRequest="80"
                                        MaximumWidthRequest="60"
                                        VerticalOptions="Center" />
-                                    <VerticalStackLayout Grid.Column="1"
+                                <VerticalStackLayout Grid.Column="1"
                                                      Spacing="2"
                                                      VerticalOptions="CenterAndExpand">
-                                        <Label Text="{Binding Name}" TextColor="White" />
-                                        <Label Text="{Binding NiceDate}" FontSize="Caption" TextColor="White" />
-                                    </VerticalStackLayout>
-                                </HorizontalStackLayout>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </VerticalStackLayout>
-            </VerticalStackLayout>
-        </ScrollView>
-    <!--</RefreshView>-->
-    <!--<StackLayout>
-        <Label Text="New Releases" FontSize="Title" Margin="5" HorizontalOptions="FillAndExpand" />
-        <ListView ItemsSource="{Binding NewGames}"
-                  HorizontalOptions="FillAndExpand"
-                  VerticalOptions="FillAndExpand"
-                  Margin="5,0,5,0"
-                  HasUnevenRows="true"
-                  IsPullToRefreshEnabled="false"
-                  IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-                  CachingStrategy="RecycleElement"
-                  SelectionMode="Single"
-                  SeparatorColor="Gray">
-
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <HorizontalStackLayout Spacing="0" Margin="0" Padding="0" HeightRequest="20" BackgroundColor="Gold" HorizontalOptions="Start" VerticalOptions="Fill">
-                            <Image Margin="3"
-                                   HeightRequest="50"
-                                   WidthRequest="50"
-                                   Source="{Binding CoverUrl}"/>
-                            <VerticalStackLayout Margin="0" BackgroundColor="Green" Spacing="0" Padding="0" VerticalOptions="Start" >
-                                <Label Text="{Binding Name}" BackgroundColor="Red" />
-                                <Label Text="{Binding NiceDate}" BackgroundColor="White" />
-                            </VerticalStackLayout>
-                        </HorizontalStackLayout>
-
-                        --><!--<Grid Margin="0" RowSpacing="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
-                                <RowDefinition Height="1" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="" />
-                                <ColumnDefinition  />
-                            </Grid.ColumnDefinitions>
-
-                            <StackLayout Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" BackgroundColor="Blue">
-                                <Image BackgroundColor="Green"
-                                   Margin="3"
-                                   HeightRequest="50"
-                                   WidthRequest="50"
-                                   Source="{Binding CoverUrl}"/>
-                            </StackLayout>
-
-                            <StackLayout Grid.Row="0" Grid.Column="1">
-                                <Label Text="{Binding Name}" />
-                            </StackLayout>
-
-                            <StackLayout Grid.Row="1" Grid.Column="1" >
-                                <Label Text="{Binding NiceDate}" />
-                            </StackLayout>
-
-                            <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="1" BackgroundColor="DarkGray" />
-
-                        </Grid>--><!--
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>-->
-    <!--<ScrollView Margin="20">
-            <StackLayout>
-                <Label Text="New Releases" FontSize="Title" Margin="5" HorizontalOptions="FillAndExpand" />
-                <StackLayout BindableLayout.ItemsSource="{Binding NewGames}">
-                    <BindableLayout.ItemTemplate>
-                        <DataTemplate>
-                            <HorizontalStackLayout>
-                                <Image BackgroundColor="Green"
-                                   Margin="3"
-                                   HeightRequest="50"
-                                   WidthRequest="50"
-                                   Source="{Binding CoverUrl}"/>
-                                <VerticalStackLayout>
-                                    <Label Text="{Binding Name}" />
-                                    <Label Text="{Binding NiceDate}" />
+                                    <Label Text="{Binding Name}" TextColor="White" />
+                                    <Label Text="{Binding NiceDate}" FontSize="Caption" TextColor="White" />
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
                         </DataTemplate>
-                    </BindableLayout.ItemTemplate>
-                </StackLayout>
-            </StackLayout>
-        </ScrollView>-->
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
