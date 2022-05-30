@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:GameManager.Maui.Views"
+             xmlns:components="clr-namespace:GameManager.Maui.Views.Component"
+             xmlns:converters="clr-namespace:GameManager.Maui.Converters"
+             x:Class="GameManager.Maui.Views.GamePage"
+             Shell.NavBarIsVisible="False"
+             Shell.PresentationMode="Animated"
+             BackgroundColor="Black">
+
+    <ContentPage.Resources>
+        <converters:InvertBooleanConverter x:Key="InvertBooleanConverter" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <!--
+        <Grid RowDefinitions="Auto, Auto, *" ColumnDefinitions="*, *, *">
+            <components:Header Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+            <Image Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" 
+                   IsVisible="{Binding IsSearchGamesVisible, Converter={StaticResource InvertBooleanConverter}}"
+                   x:Name="BannerImage" 
+                   Source="{Binding Game.BannerUrl}" 
+                   Opacity=".1" 
+                   VerticalOptions="StartAndExpand" />
+            <Grid Grid.Row="1" Grid.RowSpan="2" 
+                  Grid.Column="0" Grid.ColumnSpan="3" 
+                  RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" 
+                  ColumnDefinitions="*, *" 
+                  Margin="5" Padding="10" RowSpacing="10"
+                  IsVisible="{Binding IsSearchGamesVisible, Converter={StaticResource InvertBooleanConverter}}"
+                  VerticalOptions="EndAndExpand" >
+
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Game.Name}" FontSize="Title" TextColor="White" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center" />
+                <Image Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Source="{Binding FavoriteIcon}" HorizontalOptions="EndAndExpand" WidthRequest="30" VerticalOptions="CenterAndExpand" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FavoriteGameCommand}" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Game.NiceDateV2}" FontSize="Small" TextColor="White" />
+                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Game.Company}" FontSize="Micro" TextColor="Gray" />
+
+                <HorizontalStackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" >
+
+                    <Image Source="star_1.png" HeightRequest="20" />
+                    <Image Source="star_1.png" HeightRequest="20" />
+                    <Image Source="star_1.png" HeightRequest="20" />
+                    <Image Source="star_1.png" HeightRequest="20" />
+                    <Image Source="star_1.png" HeightRequest="20" />
+
+                </HorizontalStackLayout>
+                
+                <HorizontalStackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Spacing="10">
+                    <Label Text="About" FontSize="Small" TextColor="White" TextDecorations="Underline" FontAttributes="Bold" />
+                    <Label Text="Images" FontSize="Small" TextColor="White" />
+                    <Label Text="Recommendations" FontSize="Small" TextColor="White" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Spacing="10">
+                    <Button Text="Adventure" BorderColor="Gray" BackgroundColor="Black" TextColor="Gray" />
+                    <Button Text="Role-playing" BorderColor="Gray" BackgroundColor="Black" TextColor="Gray" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Spacing="10">
+                    <Button Text="PC (Microsoft Windows)" BorderColor="Gray" BackgroundColor="Black" TextColor="Gray" />
+                    <Button Text="Xbox Series X|S" BorderColor="Gray" BackgroundColor="Black" TextColor="Gray" />
+                </HorizontalStackLayout>
+
+                <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" 
+                       Text="{Binding Game.Summary}"
+                       LineBreakMode="WordWrap"
+                       TextColor="White" />
+
+            </Grid>
+        </Grid>
+        -->
+        <Grid RowDefinitions="Auto, *, *, *, *" ColumnDefinitions="*" BackgroundColor="Black">
+            <components:Header Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+            <Image Grid.Row="1" Grid.RowSpan="3"
+                   IsVisible="{Binding IsSearchGamesVisible, Converter={StaticResource InvertBooleanConverter}}"
+                   Source="{Binding Game.BannerUrl}" 
+                   Aspect="AspectFit"
+                   Opacity=".3" 
+                   VerticalOptions="StartAndExpand" />
+
+            <Grid Grid.Row="2" Grid.RowSpan="4" 
+                  IsVisible="{Binding IsSearchGamesVisible, Converter={StaticResource InvertBooleanConverter}}"
+                  RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" 
+                  Padding="15,0,15,0" 
+                  RowSpacing="2" 
+                  ColumnDefinitions="*, *" >
+                <Label Grid.Row="0" Text="{Binding Game.Name}" FontSize="Title" TextColor="White" />
+
+                <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Source="{Binding FavoriteIcon}" HorizontalOptions="EndAndExpand" WidthRequest="30" VerticalOptions="CenterAndExpand" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding FavoriteGameCommand}" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Game.NiceDateV2}" FontSize="Small" TextColor="White" />
+                <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Game.Company}" FontSize="Micro" TextColor="Gray" >
+                    <!-- <Label.Shadow> -->
+                    <!--     <Shadow Offset="0,1" -->
+                    <!--             Opacity="0.1"  -->
+                    <!--             Radius="0.1"> -->
+                    <!--         <Shadow.Brush> -->
+                    <!--             <LinearGradientBrush> -->
+                    <!--                 <GradientStop Color="White" -->
+                    <!--                               Offset="0.1" /> -->
+                    <!--                 <GradientStop Color="White" -->
+                    <!--                               Offset="1.0" /> -->
+                    <!--             </LinearGradientBrush> -->
+                    <!--         </Shadow.Brush> -->
+                    <!--     </Shadow> -->
+                    <!-- </Label.Shadow> -->
+                </Label>
+
+                <HorizontalStackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" >
+
+                    <Image Source="star_1.png" HeightRequest="20" />
+                    <Image Source="star_1.png" HeightRequest="20" />
+                    <Image Source="star_1.png" HeightRequest="20" />
+                    <Image Source="star_1.png" HeightRequest="20" />
+                    <Image Source="star_1.png" HeightRequest="20" />
+
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Spacing="10">
+                    <Label Text="About" FontSize="Small" TextColor="White" TextDecorations="Underline" FontAttributes="Bold" />
+                    <Label Text="Images" FontSize="Small" TextColor="White" />
+                    <Label Text="Recommendations" FontSize="Small" TextColor="White" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Spacing="10">
+                    <Button Text="Adventure" BorderColor="Gray" BackgroundColor="Black" TextColor="Gray" />
+                    <Button Text="Role-playing" BorderColor="Gray" BackgroundColor="Black" TextColor="Gray" />
+                </HorizontalStackLayout>
+
+                <HorizontalStackLayout Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Spacing="10">
+                    <Button Text="PC (Microsoft Windows)" BorderColor="Gray" BackgroundColor="Black" TextColor="Gray" />
+                    <Button Text="Xbox Series X|S" BorderColor="Gray" BackgroundColor="Black" TextColor="Gray" />
+                </HorizontalStackLayout>
+
+                <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" 
+                       Text="{Binding Game.Summary}"
+                       LineBreakMode="WordWrap"
+                       TextColor="White" />
+
+            </Grid>
+
+        </Grid>
+    </ContentPage.Content>
+   
+</ContentPage>

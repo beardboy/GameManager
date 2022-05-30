@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GameManager.Maui.Views.Component.Header">
+    
+    <ContentView.Content>
+        <Grid RowDefinitions="Auto,Auto">
+            <Grid Grid.Row="0" BackgroundColor="#434242" HeightRequest="50" ColumnDefinitions="*,Auto,Auto" ColumnSpacing="5">
+                <!-- <Label Grid.Column="0" Text="IGDB" FontSize="Subtitle" TextColor="White" HorizontalOptions="StartAndExpand" VerticalTextAlignment="Center" Margin="5" /> -->
+                <Image Grid.Column="0"
+                       HorizontalOptions="Start"
+                       Margin="3"
+                       Source="igdb_logo_thaddeus.png" />
+                <ImageButton Grid.Column="1"
+                             HorizontalOptions="End"
+                             BackgroundColor="#434242"
+                             BorderColor="#434242"
+                             Source="search_white_24dp.png"
+                             Command="{Binding ToggleSearchCommand}"
+                             HeightRequest="30" 
+                             WidthRequest="50" 
+                             VerticalOptions="Center"   />
+                <SearchBar Grid.Column="2" 
+                           WidthRequest="300"
+                           Margin="0,0,5,0"
+                           HorizontalOptions="EndAndExpand" 
+                           IsVisible="{Binding IsSearchBarVisible}"
+                           CancelButtonColor="White"
+                           TextColor="White"
+                           PlaceholderColor="White"
+                           BackgroundColor="#434242"
+                           Placeholder="Search for Games..."
+                           SearchCommand="{Binding SearchCommand}"
+                           VerticalOptions="CenterAndExpand"
+                           Text="{Binding SearchBarText}"/>
+            </Grid>
+            <VerticalStackLayout Grid.Row="1" Margin="0" Padding="5" Spacing="0" IsVisible="{Binding IsSearchGamesVisible}">
+                <Grid ColumnDefinitions="*, Auto">
+                    <Label Grid.Column="0" Text="Search Results" FontSize="Small" TextColor="White" Margin="10,10,0,0" HorizontalOptions="StartAndExpand" />
+                    <ImageButton Grid.Column="1" 
+                                 Margin="5" 
+                                 Source="filter_list_white_24dp.png"
+                                 Command="{Binding ToggleFilterCommand}"
+                                 HeightRequest="30" 
+                                 WidthRequest="40" 
+                                 HorizontalOptions="End" 
+                                 VerticalOptions="Center"   />
+                </Grid>
+                <CollectionView Margin="10" 
+                                ItemsSource="{Binding SearchGames}"
+                                SelectedItem="{Binding SearchGame}"
+                                SelectionChangedCommand="{Binding SelectedGameCommand}"
+                                SelectionChangedCommandParameter="{Binding SearchGame}"
+                                HorizontalOptions="FillAndExpand" 
+                                VerticalOptions="StartAndExpand"
+                                SelectionMode="Single">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <HorizontalStackLayout Margin="5" Padding="2" Spacing="10" HorizontalOptions="FillAndExpand">
+                                <Image Source="{Binding CoverUrl}"
+                                       HeightRequest="80"
+                                       MaximumWidthRequest="60"
+                                       VerticalOptions="Center" />
+                                <VerticalStackLayout Grid.Column="1"
+                                                     Spacing="2"
+                                                     VerticalOptions="CenterAndExpand">
+                                    <Label Text="{Binding Name}" TextColor="White" />
+                                    <Label Text="{Binding NiceDate}" FontSize="Caption" TextColor="White" />
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Row="1" Margin="0" Padding="5" Spacing="0" IsVisible="{Binding IsFilterVisible}" BackgroundColor="White" HorizontalOptions="FillAndExpand">
+                <Grid ColumnDefinitions="Auto, *" Padding="10" HorizontalOptions="FillAndExpand">
+                    <Label Grid.Column="0" Text="Filter" FontSize="Medium" TextColor="Black" VerticalTextAlignment="Center" />
+                    <HorizontalStackLayout Grid.Column="1" HorizontalOptions="EndAndExpand" Spacing="10">
+                        <Label Text="x" TextColor="White" BackgroundColor="Black" Padding="5" HorizontalOptions="End" />
+                        <Label Text="Close" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="End" />
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <ClickGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                            <TapGestureRecognizer Command="{Binding ToggleFilterCommand}" />
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+                </Grid>
+                <Grid ColumnDefinitions="Auto, *" Padding="20,0" HorizontalOptions="FillAndExpand">
+                    <Label Grid.Column="0" Text="Platforms" TextColor="Black" VerticalTextAlignment="Center" />
+                    <HorizontalStackLayout Grid.Column="1" HorizontalOptions="EndAndExpand" Spacing="10">
+                        <Label Text="^" TextColor="Black" FontAttributes="Bold" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                </Grid>
+                <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="20,0" HorizontalOptions="FillAndExpand">
+                    <HorizontalStackLayout Grid.Row="0" Grid.Column="0" Padding="20,5,0,0">
+                        <Frame BackgroundColor="White" HeightRequest="25" WidthRequest="25" />
+                        <Label Text="PC (Microsoft Windows)" TextColor="Black" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Grid.Row="1" Grid.Column="0" Padding="20,5,0,0">
+                        <Frame BackgroundColor="White" HeightRequest="25" WidthRequest="25" />
+                        <Label Text="Mac" TextColor="Black" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Grid.Row="2" Grid.Column="0" Padding="20,5,0,0">
+                        <Frame BackgroundColor="White" HeightRequest="25" WidthRequest="25" />
+                        <Label Text="Linux" TextColor="Black" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Grid.Row="3" Grid.Column="0" Padding="20,5,0,0">
+                        <Frame BackgroundColor="White" HeightRequest="25" WidthRequest="25" />
+                        <Label Text="Xbox One" TextColor="Black" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Grid.Row="4" Grid.Column="0" Padding="20,5,0,0">
+                        <Frame BackgroundColor="White" HeightRequest="25" WidthRequest="25" />
+                        <Label Text="PlayStation 4" TextColor="Black" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Grid.Row="5" Grid.Column="0" Padding="20,5,0,0">
+                        <Frame BackgroundColor="White" HeightRequest="25" WidthRequest="25" />
+                        <Label Text="Nintendo Switch" TextColor="Black" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Grid.Row="6" Grid.Column="0" Padding="20,5,0,0">
+                        <Frame BackgroundColor="White" HeightRequest="25" WidthRequest="25" />
+                        <Label Text="PlayStation 3" TextColor="Black" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout Grid.Row="7" Grid.Column="0" Padding="20,5,0,0">
+                        <Frame BackgroundColor="White" HeightRequest="25" WidthRequest="25" />
+                        <Label Text="Xbox 360" TextColor="Black" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                </Grid>
+                <Grid ColumnDefinitions="Auto, *" Padding="20,10" HorizontalOptions="FillAndExpand">
+                    <Label Grid.Column="0" Text="Game engine" TextColor="Black" VerticalTextAlignment="Center" />
+                    <HorizontalStackLayout Grid.Column="1" HorizontalOptions="EndAndExpand" Spacing="10">
+                        <Label Text="v" TextColor="Black" FontAttributes="Bold" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                </Grid>
+                <Grid ColumnDefinitions="Auto, *" Padding="20,10" HorizontalOptions="FillAndExpand">
+                    <Label Grid.Column="0" Text="Genre" TextColor="Black" VerticalTextAlignment="Center" />
+                    <HorizontalStackLayout Grid.Column="1" HorizontalOptions="EndAndExpand" Spacing="10">
+                        <Label Text="v" TextColor="Black" FontAttributes="Bold" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                </Grid>
+                <Grid ColumnDefinitions="Auto, *" Padding="20,10" HorizontalOptions="FillAndExpand">
+                    <Label Grid.Column="0" Text="Game Mode" TextColor="Black" VerticalTextAlignment="Center" />
+                    <HorizontalStackLayout Grid.Column="1" HorizontalOptions="EndAndExpand" Spacing="10">
+                        <Label Text="v" TextColor="Black" FontAttributes="Bold" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                </Grid>
+                <Grid ColumnDefinitions="Auto, *" Padding="20,10" HorizontalOptions="FillAndExpand">
+                    <Label Grid.Column="0" Text="Release Date" TextColor="Black" VerticalTextAlignment="Center" />
+                    <HorizontalStackLayout Grid.Column="1" HorizontalOptions="EndAndExpand" Spacing="10">
+                        <Label Text="v" TextColor="Black" FontAttributes="Bold" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                </Grid>
+                <Grid ColumnDefinitions="Auto, *" Padding="20,10" HorizontalOptions="FillAndExpand">
+                    <Label Grid.Column="0" Text="Rating" TextColor="Black" VerticalTextAlignment="Center" />
+                    <HorizontalStackLayout Grid.Column="1" HorizontalOptions="EndAndExpand" Spacing="10">
+                        <Label Text="v" TextColor="Black" FontAttributes="Bold" Padding="5" HorizontalOptions="End" />
+                    </HorizontalStackLayout>
+                </Grid>
+
+            </VerticalStackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
