@@ -5,10 +5,8 @@ namespace GameManager.Controller;
 
 public class IgdbController : IIgdbController
 {
-    // private readonly string IGDB_CLIENT_ID = "ENTER TWITCH CLIENT ID";
-    // private readonly string IGDB_CLIENT_SECRET = "ENTER TWITCH CLIENT SECRET";
-    private readonly string IGDB_CLIENT_ID = "y1ycbde2zc3hhf7de296kfoujq6qt3";
-    private readonly string IGDB_CLIENT_SECRET = "nq0l8wzf2spx2cj5jq07s49ml33u1d";
+    private readonly string IGDB_CLIENT_ID = "ENTER TWITCH CLIENT ID";
+    private readonly string IGDB_CLIENT_SECRET = "ENTER TWITCH CLIENT SECRET";
 
     public IGDBClient Client { get; set; }
 
