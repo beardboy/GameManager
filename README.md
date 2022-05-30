@@ -1,5 +1,5 @@
 # GameManager
-IGDB Game Manager (.NET Maui RC1)
+IGDB Game Manager (.NET Maui)
 
 Game Manager App using IGDB's API (https://api-docs.igdb.com/) with IGDB NuGet by Kamran Ayub (https://github.com/kamranayub/igdb-dotnet)
 
