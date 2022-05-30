@@ -1,6 +1,6 @@
-﻿using GameManager.Maui.Interfaces;
+﻿using GameManager.Interfaces;
 
-namespace GameManager.Maui.Controller;
+namespace GameManager.Controller;
 
 public static class ControllerExtensions
 {

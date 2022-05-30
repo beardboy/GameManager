@@ -1,7 +1,7 @@
-using GameManager.Maui.Interfaces.ViewModels;
-using GameManager.Maui.ViewModels;
+using GameManager.Interfaces.ViewModels;
+using GameManager.ViewModels;
 
-namespace GameManager.Maui.Views;
+namespace GameManager.Views;
 
 public partial class FavoritesPage : ContentPage
 {

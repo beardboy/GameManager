@@ -1,18 +1,17 @@
 ﻿#region Usings
 
+using System.Text.Json;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using GameManager.Maui.Interfaces;
-using GameManager.Maui.Models;
+using GameManager.Interfaces;
+using GameManager.Models;
 using IGDB;
 using IGDB.Models;
-using System.Text.Json;
-using System.Windows.Input;
 
 #endregion
 
 
-namespace GameManager.Maui.ViewModels;
+namespace GameManager.ViewModels;
 
 public partial class BaseViewModel : ObservableObject
 {

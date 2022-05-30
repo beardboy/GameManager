@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using IGDB.Models;
 
-namespace GameManager.Maui.Converters
+namespace GameManager.Converters
 {
     internal class CoverMultiConverter : IMultiValueConverter
     {

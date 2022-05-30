@@ -1,8 +1,8 @@
-using GameManager.Maui.Interfaces.ViewModels;
-using GameManager.Maui.Models;
-using GameManager.Maui.ViewModels;
+using GameManager.Interfaces.ViewModels;
+using GameManager.Models;
+using GameManager.ViewModels;
 
-namespace GameManager.Maui.Views;
+namespace GameManager.Views;
 
 [QueryProperty(nameof(Game), "Game")]
 public partial class GamePage : ContentPage

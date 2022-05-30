@@ -1,4 +1,4 @@
-﻿namespace GameManager.Maui.Views
+﻿namespace GameManager.Views
 {
     public static class ViewExtensions
     {

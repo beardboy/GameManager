@@ -1,4 +1,4 @@
-﻿namespace GameManager.Maui.Interfaces;
+﻿namespace GameManager.Interfaces;
 
 public interface IIgdbController
 {

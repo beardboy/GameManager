@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:GameManager.Maui.Views"
-             xmlns:components="clr-namespace:GameManager.Maui.Views.Component"
-             xmlns:converters="clr-namespace:GameManager.Maui.Converters"
-             x:Class="GameManager.Maui.Views.GamePage"
+             xmlns:views="clr-namespace:GameManager.Views"
+             xmlns:components="clr-namespace:GameManager.Views.Component"
+             xmlns:converters="clr-namespace:GameManager.Converters"
+             x:Class="GameManager.Views.GamePage"
              Shell.NavBarIsVisible="False"
              Shell.PresentationMode="Animated"
              BackgroundColor="Black">

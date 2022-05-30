@@ -1,4 +1,4 @@
-﻿namespace GameManager.Maui.Models
+﻿namespace GameManager.Models
 {
     public class ReleaseDateWithCovers
     {

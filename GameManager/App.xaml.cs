@@ -1,4 +1,4 @@
-﻿namespace GameManager.Maui;
+﻿namespace GameManager;
 
 public partial class App : Application
 {

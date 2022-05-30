@@ -1,19 +1,18 @@
 ﻿#region Usings
 
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using GameManager.Maui.Interfaces;
-using GameManager.Maui.Interfaces.ViewModels;
-using GameManager.Maui.Models;
-using IGDB;
-using IGDB.Models;
 using System.Collections.ObjectModel;
 using System.Text.Json;
-using System.Windows.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using GameManager.Interfaces;
+using GameManager.Interfaces.ViewModels;
+using GameManager.Models;
+using IGDB;
+using IGDB.Models;
 
 #endregion
 
-namespace GameManager.Maui.ViewModels;
+namespace GameManager.ViewModels;
 
 public partial class HomeViewModel : BaseViewModel, IHomeViewModel
 {
@@ -112,7 +111,7 @@ public partial class HomeViewModel : BaseViewModel, IHomeViewModel
             var lastUpdated = File.GetLastWriteTime(popularGamesPath);
             var timeDiff = (DateTime.Now - lastUpdated).TotalHours;
 
-            if (timeDiff < 24 && PopularGames.Count() > 0)
+            if (timeDiff < 24 && Enumerable.Count<ReleaseDateWithCovers>(PopularGames) > 0)
             {
                 return;
             }
@@ -194,7 +193,7 @@ public partial class HomeViewModel : BaseViewModel, IHomeViewModel
             var lastUpdated = File.GetLastWriteTime(newGamesPath);
             var timeDiff = (DateTime.Now - lastUpdated).TotalHours;
 
-            if (timeDiff < 24 && NewGames.Count() > 0)
+            if (timeDiff < 24 && Enumerable.Count<ReleaseDateWithCovers>(NewGames) > 0)
             {
                 return;
             }

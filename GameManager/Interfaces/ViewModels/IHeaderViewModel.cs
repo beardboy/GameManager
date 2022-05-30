@@ -1,4 +1,4 @@
-﻿namespace GameManager.Maui.Interfaces.ViewModels;
+﻿namespace GameManager.Interfaces.ViewModels;
 
 public interface IHeaderViewModel
 {

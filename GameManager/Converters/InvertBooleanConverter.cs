@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace GameManager.Maui.Converters
+namespace GameManager.Converters
 {
     public class InvertBooleanConverter : IValueConverter
     {

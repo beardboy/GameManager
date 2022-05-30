@@ -1,4 +1,4 @@
-namespace GameManager.Maui.Views.Component;
+namespace GameManager.Views.Component;
 
 public partial class Header : ContentView
 {

@@ -1,16 +1,16 @@
 ﻿#region Usings
 
-using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using GameManager.Maui.Interfaces;
-using GameManager.Maui.Interfaces.ViewModels;
-using GameManager.Maui.Models;
 using System.Collections.ObjectModel;
 using System.Text.Json;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using GameManager.Interfaces;
+using GameManager.Interfaces.ViewModels;
+using GameManager.Models;
 
 #endregion
 
-namespace GameManager.Maui.ViewModels;
+namespace GameManager.ViewModels;
 
 public partial class FavoritesViewModel : BaseViewModel, IFavoritesViewModel
 {

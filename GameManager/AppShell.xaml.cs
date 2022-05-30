@@ -1,6 +1,6 @@
-﻿using GameManager.Maui.Views;
+﻿using GameManager.Views;
 
-namespace GameManager.Maui;
+namespace GameManager;
 
 public partial class AppShell : Shell
 {

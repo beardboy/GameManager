@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using IGDB;
 
-namespace GameManager.Maui;
+namespace GameManager;
 
 public class MauiTokenStore : ITokenStore
 {

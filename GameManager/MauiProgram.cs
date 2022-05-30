@@ -1,13 +1,13 @@
 ﻿#region Usings
 
 using CommunityToolkit.Maui;
-using GameManager.Maui.Controller;
-using GameManager.Maui.ViewModels;
-using GameManager.Maui.Views;
+using GameManager.Controller;
+using GameManager.ViewModels;
+using GameManager.Views;
 
 #endregion
 
-namespace GameManager.Maui;
+namespace GameManager;
 
 public static class MauiProgram
 {

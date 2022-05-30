@@ -1,7 +1,7 @@
-﻿using GameManager.Maui.Interfaces;
-using GameManager.Maui.Interfaces.ViewModels;
+﻿using GameManager.Interfaces;
+using GameManager.Interfaces.ViewModels;
 
-namespace GameManager.Maui.ViewModels;
+namespace GameManager.ViewModels;
 
 public class HeaderViewModel : BaseViewModel, IHeaderViewModel
 {

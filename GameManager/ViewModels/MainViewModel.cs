@@ -2,13 +2,12 @@
 
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using GameManager.Maui.Interfaces;
-using GameManager.Maui.Interfaces.ViewModels;
-using System.Windows.Input;
+using GameManager.Interfaces;
+using GameManager.Interfaces.ViewModels;
 
 #endregion
 
-namespace GameManager.Maui.ViewModels;
+namespace GameManager.ViewModels;
 
 public partial class MainViewModel : BaseViewModel, IMainViewModel
 {

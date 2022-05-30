@@ -1,6 +1,6 @@
-﻿using GameManager.Maui.Interfaces.ViewModels;
+﻿using GameManager.Interfaces.ViewModels;
 
-namespace GameManager.Maui.ViewModels;
+namespace GameManager.ViewModels;
 
 public static class ViewModelExtensions
 {
